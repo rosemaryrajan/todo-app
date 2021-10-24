@@ -26,13 +26,13 @@ def close_db(conn):
     conn.close()
 
 
-def create_table():
+def create_tables():
     conn = connect_db()
 
     cur = create_cursor(conn)
     # Execute a command: this creates a new table
     cur.execute(
-        "CREATE TABLE task (id serial PRIMARY KEY, task varchar(255) NOT NULL, descriprion text NOT NULL , date  timestamp);")
+        "CREATE TABLE task (id serial PRIMARY KEY, task varchar(255) NOT NULL, description text NOT NULL , date  timestamp);")
     cur.execute(
         "CREATE TABLE meeting (id serial PRIMARY KEY, person varchar(255) NOT NULL, purpose text NOT NULL , date  timestamp);")
 
@@ -42,3 +42,7 @@ def create_table():
     # Close communication with the database
     close_cursor(cur)
     close_db(conn)
+
+
+if __name__ == '__main__':
+    create_tables()

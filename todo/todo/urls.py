@@ -22,7 +22,7 @@ from rest_framework import permissions
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    path('daily_task/', include('app.daily_task.urls')),
+    path('daily_task/', include('apps.daily_task.urls')),
 ]
 
 schema_view = get_schema_view(
